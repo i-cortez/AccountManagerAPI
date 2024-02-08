@@ -4,10 +4,13 @@ import com.user.UserAccountData.entity.User;
 
 public class UserDTO {
     private Integer userId;
+    private String firstName;
+    private String lastName;
     private String userName;
+    private String email;
     private String password;
     private Long phoneNumber;
-    private String city;
+    private AddressDTO addressDTO;
 
     public UserDTO() {
         super();
@@ -15,17 +18,20 @@ public class UserDTO {
 
     public UserDTO(
         Integer userId,
+        String firstName,
+        String lastName,
         String userName,
+        String email,
         String password,
         Long phoneNumber,
-        String city
+        AddressDTO addressDTO
     ) {
         super();
         this.userId = userId;
         this .userName = userName;
         this.password = password;
         this.phoneNumber = phoneNumber;
-        this.city = city;
+        this.addressDTO = addressDTO;
     }
 
     public Integer getUserId() {
@@ -35,11 +41,32 @@ public class UserDTO {
         this.userId = userId;
     }
 
+    public String getFirstName() {
+        return this.firstName;
+    }
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return this.lastName;
+    }
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
     public String getUserName() {
         return this.userName;
     }
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {
@@ -56,28 +83,34 @@ public class UserDTO {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getCity() {
-        return this.city;
+    public AddressDTO getAddressDTO() {
+        return this.addressDTO;
     }
-    public void setCity(String city) {
-        this.city = city;
+    public void setAddressDTO(AddressDTO addressDTO) {
+        this.addressDTO = addressDTO;
     }
 
     public static UserDTO entityToDto(User user){
         UserDTO userDTO = new UserDTO();
         userDTO.setUserId(user.getUserId());
+        userDTO.setFirstName(user.getFirstName());
+        userDTO.setLastName(user.getLastName());
         userDTO.setUserName(user.getUserName());
+        userDTO.setEmail(user.getEmail());
         userDTO.setPassword(user.getPassword());
         userDTO.setPhoneNumber(user.getPhoneNumber());
-        userDTO.setCity(user.getCity());
+        AddressDTO addressDTO = AddressDTO.entityToDto(user.getAddress());
+        userDTO.setAddressDTO(addressDTO);
 
         return userDTO;
     }
 
     @Override
     public String toString() {
-        return "UserDTO [userId=" + this.userId + ",userName=" + this.userName + 
-        ", password=" + this.password + ", phoneNumber=" + this.phoneNumber + 
-        ", city" + this.city + "]";
+        return "UserDTO [userId=" + this.userId + ", firstName=" + 
+        this.firstName + ", lastName=" + this.lastName + ",userName=" + 
+        this.userName + ", email=" + this.email + ", password=" + 
+        this.password + ", phoneNumber=" + this.phoneNumber + ", addressDTO" + 
+        this.addressDTO + "]";
     }
 }
