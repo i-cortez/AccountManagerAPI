@@ -3,7 +3,7 @@ drop schema if exists user_db;
 create schema user_db;
 use user_db;
 
-drop table userdata;
+drop table if exists userdata;
 
 create table userdata(
     user_id int primary key auto_increment,
@@ -15,6 +15,6 @@ create table userdata(
 
 insert into userdata values(2000, 'Chris', 'Chris12345', 8313181182, 'Aptos');
 insert into userdata values(2001, 'Rick', 'Rick12345', 8314718141, 'Santa Cruz');
-insert into userdata values(2002, 'Nathan', 'Nathan12345', 5106909080, 'Hayward');
+insert into userdata values(2002, 'Nathan', 'Nathan1234', 5106909080, 'Hayward');
 
 select * from userdata;
