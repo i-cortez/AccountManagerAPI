@@ -1,7 +1,6 @@
 package com.user.UserAccountData.service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,22 +28,15 @@ public class UserAccountDataServiceImpl implements UserAccountDataService {
     }
 
     @Override
-    public List<UserDTO> getDetailsByUserName(String userName) 
+    public UserDTO getUserByUserId(Integer userId) 
     throws UserAccountDataException {
-        List<User> users = userAccountDataRepository.findByUserName(userName);
-
-        if(users.isEmpty()) {
-            throw new UserAccountDataException("Service.NO_USERS_FOUND");
-        }
-
-        List<UserDTO> userDTOs = new ArrayList<>();
-        users.forEach(
-            user -> {
-                UserDTO userDTO = UserDTO.entityToDto(user);
-                userDTOs.add(userDTO);
-            }
+        Optional<User> optional = userAccountDataRepository.findById(userId);
+        User user = optional.orElseThrow(
+            () -> new UserAccountDataException("Service.USER_ID_NOT_FOUND")
         );
 
-        return userDTOs;
+        UserDTO userDTO = UserDTO.entityToDto(user);
+
+        return userDTO;
     }
 }

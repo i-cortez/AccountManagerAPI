@@ -62,11 +62,11 @@ public class Address {
     public static Address dtoToEntity(AddressDTO addressDTO) {
         Address address = new Address();
         address.setAddressId(addressDTO.getAddressId());
-        addressDTO.setStreet(addressDTO.getStreet());
-        addressDTO.setStreet2(addressDTO.getStreet2());
-        addressDTO.setCity(addressDTO.getCity());
-        addressDTO.setState(addressDTO.getState());
-        addressDTO.setZip(addressDTO.getZip());
+        address.setStreet(addressDTO.getStreet());
+        address.setStreet2(addressDTO.getStreet2());
+        address.setCity(addressDTO.getCity());
+        address.setState(addressDTO.getState());
+        address.setZip(addressDTO.getZip());
         return address;
     }
 

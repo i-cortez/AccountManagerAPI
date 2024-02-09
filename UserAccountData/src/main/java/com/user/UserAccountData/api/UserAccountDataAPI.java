@@ -1,7 +1,5 @@
 package com.user.UserAccountData.api;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -37,12 +35,12 @@ public class UserAccountDataAPI {
         return new ResponseEntity<>(successMsg, HttpStatus.CREATED);
     }
 
-    @GetMapping(value = "/user/{userName}")
-    public ResponseEntity<List<UserDTO>> getDetailsByUserName(
-        @PathVariable String userName
+    @GetMapping(value = "/user/{userId}")
+    public ResponseEntity<UserDTO> getUserByUserId(
+        @PathVariable Integer userId
     ) throws UserAccountDataException {
-        List<UserDTO> userDTOs = userAccountDataService.getDetailsByUserName(userName);
+        UserDTO userDTO = userAccountDataService.getUserByUserId(userId);
 
-        return new ResponseEntity<>(userDTOs, HttpStatus.OK);
+        return new ResponseEntity<>(userDTO, HttpStatus.OK);
     }
 }
