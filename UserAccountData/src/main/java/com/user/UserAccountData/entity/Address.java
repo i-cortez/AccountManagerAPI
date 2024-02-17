@@ -4,11 +4,14 @@ import com.user.UserAccountData.dto.AddressDTO;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
 public class Address {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer addressId;
     private String street;
     @Column(name = "street_2")
@@ -61,7 +64,6 @@ public class Address {
 
     public static Address dtoToEntity(AddressDTO addressDTO) {
         Address address = new Address();
-        address.setAddressId(addressDTO.getAddressId());
         address.setStreet(addressDTO.getStreet());
         address.setStreet2(addressDTO.getStreet2());
         address.setCity(addressDTO.getCity());

@@ -19,7 +19,6 @@ public class User {
     private Integer userId;
     private String firstName;
     private String lastName;
-    private String userName;
     private String email;
     private String password;
     private Long phoneNumber;
@@ -46,13 +45,6 @@ public class User {
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getUserName() {
-        return this.userName;
-    }
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getEmail() {
@@ -87,7 +79,6 @@ public class User {
         User user = new User();
         user.setFirstName(userDTO.getFirstName());
         user.setLastName(userDTO.getLastName());
-        user.setUserName(userDTO.getUserName());
         user.setEmail(userDTO.getEmail());
         user.setPassword(userDTO.getPassword());
         user.setPhoneNumber(userDTO.getPhoneNumber());

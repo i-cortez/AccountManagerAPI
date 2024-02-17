@@ -6,33 +6,11 @@ public class UserDTO {
     private Integer userId;
     private String firstName;
     private String lastName;
-    private String userName;
     private String email;
     private String password;
     private Long phoneNumber;
     private AddressDTO addressDTO;
 
-    public UserDTO() {
-        super();
-    }
-
-    public UserDTO(
-        Integer userId,
-        String firstName,
-        String lastName,
-        String userName,
-        String email,
-        String password,
-        Long phoneNumber,
-        AddressDTO addressDTO
-    ) {
-        super();
-        this.userId = userId;
-        this .userName = userName;
-        this.password = password;
-        this.phoneNumber = phoneNumber;
-        this.addressDTO = addressDTO;
-    }
 
     public Integer getUserId() {
         return this.userId;
@@ -53,13 +31,6 @@ public class UserDTO {
     }
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public String getUserName() {
-        return this.userName;
-    }
-    public void setUserName(String userName) {
-        this.userName = userName;
     }
 
     public String getEmail() {
@@ -95,7 +66,6 @@ public class UserDTO {
         userDTO.setUserId(user.getUserId());
         userDTO.setFirstName(user.getFirstName());
         userDTO.setLastName(user.getLastName());
-        userDTO.setUserName(user.getUserName());
         userDTO.setEmail(user.getEmail());
         userDTO.setPassword(user.getPassword());
         userDTO.setPhoneNumber(user.getPhoneNumber());
@@ -108,9 +78,8 @@ public class UserDTO {
     @Override
     public String toString() {
         return "UserDTO [userId=" + this.userId + ", firstName=" + 
-        this.firstName + ", lastName=" + this.lastName + ",userName=" + 
-        this.userName + ", email=" + this.email + ", password=" + 
-        this.password + ", phoneNumber=" + this.phoneNumber + ", addressDTO" + 
-        this.addressDTO + "]";
+        this.firstName + ", lastName=" + this.lastName + ", email=" + 
+        this.email + ", password=" + this.password + ", phoneNumber=" + 
+        this.phoneNumber + ", addressDTO" + this.addressDTO + "]";
     }
 }

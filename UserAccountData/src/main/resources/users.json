@@ -1,0 +1,30 @@
+[
+    {
+        "firstName": "Jimmy",
+        "lastName": "Jenkins",
+        "email": "jimmy.jenkins@gmail.com",
+        "password": "Jimmy12345",
+        "phoneNumber": 5107330702,
+        "addressDTO": {
+            "street": "767 N Mathilda Ave",
+            "street2": null,
+            "city": "Sunnyvale",
+            "state": "CA",
+            "zip": 94085
+        }
+    },
+    {
+        "firstName": "Ethan",
+        "lastName": "Harper",
+        "email": "ethan.harper@gmail.com",
+        "password": "Ethan12345",
+        "phoneNumber": 4087339702,
+        "addressDTO": {
+            "street": "597 E El Camino Real",
+            "street2": null,
+            "city": "Sunnyvale",
+            "state": "CA",
+            "zip": 94087
+        }
+    }
+]
