@@ -25,7 +25,7 @@ create table userdata(
     address_id int unique,
     first_name varchar(15) not null,
     last_name varchar(15) not null,
-    email varchar(40) not null,
+    email varchar(40) unique not null,
     password varchar(10) not null,
     phone_number bigint not null,
     constraint ps_userid_pk primary key (user_id),
