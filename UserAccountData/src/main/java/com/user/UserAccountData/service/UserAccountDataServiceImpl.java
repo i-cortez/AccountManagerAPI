@@ -7,7 +7,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.user.UserAccountData.dto.UserDTO;
-import com.user.UserAccountData.entity.Address;
 import com.user.UserAccountData.entity.User;
 import com.user.UserAccountData.exception.UserAccountDataException;
 import com.user.UserAccountData.repository.UserAccountDataRepository;
@@ -18,6 +17,9 @@ import com.user.UserAccountData.validator.Validator;
 public class UserAccountDataServiceImpl implements UserAccountDataService {
     @Autowired
     private UserAccountDataRepository userAccountDataRepository;
+
+    @Autowired
+    private UserAddressService userAddressService;
 
     @Override
     public Integer addUser(UserDTO userDTO) throws UserAccountDataException {
@@ -63,6 +65,10 @@ public class UserAccountDataServiceImpl implements UserAccountDataService {
         }
         if(userDTO.getPhoneNumber() != null) {
             user.setPhoneNumber(userDTO.getPhoneNumber());
+        }
+        if(userDTO.getAddressDTO() != null) {
+            Integer addressId = user.getAddress().getAddressId();
+            userAddressService.updateAddress(addressId, userDTO.getAddressDTO());
         }
         
         UserDTO updatedUserDTO = UserDTO.entityToDto(user);
