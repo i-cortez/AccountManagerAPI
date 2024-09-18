@@ -26,5 +26,17 @@
             "state": "CA",
             "zip": 94087
         }
+    },
+    {
+        "firstName": "James",
+        "email": "james.jenkins@gmail.com"
+    },
+    {
+        "addressDTO": {
+            "street": "313 Riverside Ave",
+            "city": "Santa Cruz",
+            "state": "CA",
+            "zip": 95060
+        }
     }
 ]
